@@ -1,0 +1,6 @@
+services:
+  button:
+    image: twhtanghk/button
+    env_file:
+      - ../.env
+      - ./.env
