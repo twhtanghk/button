@@ -6,6 +6,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    gap: 10px;
   }
   i {
     font-size: 300px;
@@ -21,12 +23,14 @@
 </style>
 <script>
 function tap() {
-  fetch('http://winch.local/button/toggle/press', {method: 'POST'})
+  host = document.getElementById('host').value;
+  fetch(`http://${host}/button/toggle/press`, {method: 'POST'})
     .catch(err => console.error(err));
 }
 </script>
 </head>
 <body>
+  <input type='text' id='host' value='winch.local'/>
   <button class="round btn btn-primary" onmousedown='tap()' onmouseup='tap()' ontouchstart='tap()' ontouchend='tap()'>
     <i class="fas fa-solid fa-angles-up"></i>
   </button>
